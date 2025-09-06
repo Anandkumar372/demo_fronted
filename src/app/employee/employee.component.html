@@ -1,0 +1,85 @@
+<div class="container">
+  <div align="right">
+    <button mat-raised-button color="accent" routerLink="/employee-list">Go to Employee List</button>
+  </div>
+
+  <div class="card p-5 mt-2">
+    <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+      <!-- Existing fields -->
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Id</mat-label>
+        <input matInput name="employeeId" [(ngModel)]="employee.employeeId" disabled>
+        <mat-icon matSuffix>badge</mat-icon>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Name</mat-label>
+        <input matInput name="employeeName" [(ngModel)]="employee.employeeName" required>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Contact Number</mat-label>
+        <input matInput name="employeeContactNumber" [(ngModel)]="employee.employeeContactNumber" required>
+        <mat-icon matSuffix>call</mat-icon>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput name="employeeAddress" [(ngModel)]="employee.employeeAddress">
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Department</mat-label>
+        <mat-select name="employeeDepartment" [(ngModel)]="employee.employeeDepartment" required>
+          <mat-option value="IT">IT</mat-option>
+          <mat-option value="Network">Network</mat-option>
+          <mat-option value="Repair">Repair</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <div class="mt-2">
+        <label>Gender</label><br>
+        <mat-radio-group>
+          <mat-radio-button [checked]="checkGender('M')" (click)="selectGender('M')" value="M">M</mat-radio-button>
+          <mat-radio-button [checked]="checkGender('F')" (click)="selectGender('F')" value="F">F</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    
+      <mat-form-field appearance="outline" class="mt-2">
+        <mat-label>Employee Skills</mat-label>
+        <input matInput name="employeeSkills" [(ngModel)]="employee.employeeSkills" disabled>
+        <mat-icon matSuffix>menu_book</mat-icon>
+      </mat-form-field>
+    
+      <div class="mt-2">
+        <label>Skills</label><br>
+        <mat-checkbox (change)="onSkillsChanges($event)" value="Java" [checked]="checkSkills('Java')">Java</mat-checkbox>
+        <mat-checkbox (change)="onSkillsChanges($event)" value="Angular" [checked]="checkSkills('Angular')">Angular</mat-checkbox>
+        <mat-checkbox (change)="onSkillsChanges($event)" value="Spring Boot" [checked]="checkSkills('Spring Boot')">Spring Boot</mat-checkbox>
+        <mat-checkbox (change)="onSkillsChanges($event)" value="AWS" [checked]="checkSkills('AWS')">AWS</mat-checkbox>
+      </div>
+    
+      <mat-divider class="my-3"></mat-divider>
+    
+      <!-- ✅ New Section: Upload & Preview Image
+      <div class="mt-2">
+        <label>Upload Profile Picture</label><br>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+      </div>
+    
+      <div *ngIf="previewUrl" class="mt-2">
+        <h4>Preview:</h4>
+        <img [src]="previewUrl" alt="Employee Image" width="200" class="rounded">
+      </div> -->
+    
+      <mat-divider class="my-3"></mat-divider>
+    
+      <div class="text-center mt-3">
+        <button mat-raised-button type="button" class="m-2" (click)="employeeForm.resetForm()">Clear</button>
+        <button mat-raised-button color="primary" type="submit" class="m-2" [disabled]="!employeeForm.valid">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

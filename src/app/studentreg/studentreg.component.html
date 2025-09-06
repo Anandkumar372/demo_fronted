@@ -1,0 +1,46 @@
+
+<!-- student-form.component.html -->
+<div class="container" style="max-width: 720px; margin: 2rem auto;">
+    <h2>Registration</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div>
+        <label>First Name</label>
+        <input type="text" formControlName="firstName"/>
+      </div>
+  
+      <div>
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName"/>
+      </div>
+  
+      <div>
+        <label>Email</label>
+        <input type="email" formControlName="email"/>
+      </div>
+  
+      <div>
+        <label>Photo (JPEG/PNG)</label>
+        <input type="file" accept="image/*" (change)="onFileChange($event)"/>
+      </div>
+  
+      <div *ngIf="previewSrc" style="margin-top: 1rem;">
+        <img [src]="previewSrc" alt="Preview" style="max-width: 160px; border: 1px solid #ddd; padding: 4px;" />
+      </div>
+  
+      <button type="submit" [disabled]="uploading || form.invalid" style="margin-top: 1rem;">
+        {{ uploading ? 'Saving...' : 'Save' }}
+      </button>
+    </form>
+  
+    <hr />
+  
+    <h3>Students</h3>
+    <div *ngFor="let s of students" style="display: flex; gap: 1rem; align-items: center; margin: .75rem 0;">
+      <img  [src]="imageUrl(s)!" alt="Photo" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px; border: 1px solid #eee;" />
+      <div>
+        <div><strong>{{ s.firstName }} {{ s.lastName }}</strong></div>
+        <div>{{ s.email }}</div>
+      </div>
+    </div>
+  </div>
