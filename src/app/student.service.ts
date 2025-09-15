@@ -14,7 +14,9 @@ export interface Student {
 @Injectable({ providedIn: 'root' })
 export class StudentService {
   //private base = 'http://localhost:9090/api/students';
-  private base = 'http://192.168.31.205:9090/api/students';
+  //private base = 'http://192.168.31.205:9090/api/students';
+  private base = 'http://localhost:6565/demobackend/api/students';
+  
   
   constructor(private http: HttpClient) {}
 
