@@ -53,10 +53,12 @@ export class StudentregComponent {
     this.api.list().subscribe(s => this.students = s);
   }
 
-  imageUrl(s: Student) {
+  imageUrl(s: Student) {  
     console.log(s);
-    //return `http://localhost:9090/api/students/${s.id}/photo`;
-    return `http://192.168.31.205:9090/api/students/${s.id}/photo`;
+     //return `http://localhost:9090/api/students/${s.id}/photo`;
+    //return `http://192.168.31.205:9090/api/students/${s.id}/photo`;
+
+    return `http://localhost:6565/demobackend/api/students/${s.id}/photo`;
   }
 }
 

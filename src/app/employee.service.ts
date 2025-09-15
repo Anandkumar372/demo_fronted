@@ -10,9 +10,9 @@ export class EmployeeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  api = "http://192.168.31.205:9090"
+    // api = "http://192.168.31.205:9090"
    //api = "http://localhost:9090"
-  //api = "http://10.30.0.171:9090"
+  api = "http://localhost:6565/demobackend"
 
   
   public saveEmployees(formData: FormData): Observable<Employee> {

@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username = '';
   password = '';
-  errorMessage = '';
+  errorMessage = '';  
   //loginUrl='http://10.30.0.171:9090/api/login';
   //loginUrl:any='http://localhost:9090/api/login';
-  loginUrl:any='http://192.168.31.205:9090/api/login';
+  //loginUrl:any='http://192.168.31.205:9090/api/login';
+  loginUrl:any='http://localhost:6565/demobackend/api/login';
   
   constructor(private http: HttpClient,private route:Router) {}
 
